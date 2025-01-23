@@ -20,6 +20,7 @@ const propertiesSchema = new mongoose.Schema({
     status: {
         type: String,
         required: ["available", "sold"],
+        default: "available"
         
     },
 
