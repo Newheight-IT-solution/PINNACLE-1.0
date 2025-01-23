@@ -19,11 +19,29 @@ const propertiesSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        required: ["available", "sold"],
+        enum: ["available", "sold", "pending", "rented"],  // Allowed statuses
         default: "available"
-        
     },
-
+    environmentImages: {
+        type: [String],  // Array of strings for environment images
+        default: []      // Default to an empty array
+    },
+    sittingRoomImages: {
+        type: [String],  // Array of strings for sitting room images
+        default: []      // Default to an empty array
+    },
+    bedroomImages: {
+        type: [String],  // Array of strings for bedroom images
+        default: []      // Default to an empty array
+    },
+    kitchenImages: {
+        type: [String],  // Array of strings for kitchen images
+        default: []      // Default to an empty array
+    },
+    features: {
+        type: [String],  // Array of strings for bullet points
+        default: []      // Default to an empty array
+    },
     createdAt: {
         type: Date,
         default: Date.now
