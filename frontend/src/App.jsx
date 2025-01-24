@@ -5,22 +5,21 @@ import SignOut from "./pages/SignOut"
 import Properties from "./pages/Properties"
 import Profile from "./pages/Profile"
 import About from "./pages/About"
+import Header from "./components/Header"
 
 
 export default function App() {
   return (
     <BrowserRouter>
+    <Header />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/sign-out" element={<SignOut />} />
       <Route path="/properties" element={<Properties />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/about" element={<About />} />
-
-      
+      <Route path="/about" element={<About />} /> 
     </Routes>
-      
     </BrowserRouter>
   )
 }
