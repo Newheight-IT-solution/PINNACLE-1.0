@@ -1,8 +1,14 @@
 import express from 'express';
 import Properties from '../models/propertiesModel.js';
 import req from 'express/lib/request.js';
+
+
 const router = express.Router();
 
+
+
+
+// Create a new property
 router.post("/property", async(req, res) => {
     try {
         const {name, description, status, location, price, environmentImages, sittingRoomImages, bedroomImages, kitchenImages, features} = req.body;
@@ -36,6 +42,8 @@ router.post("/property", async(req, res) => {
 
 })
 
+// Get all properties
+
 router.get("/properties", async (req, res) => {
     try {
         const properties = await Properties.find({});
@@ -48,6 +56,8 @@ router.get("/properties", async (req, res) => {
         res.status(500).json({ status: false, message: "Internal server error" });
     }
 });
+
+// Get a single property
 
 router.get("/properties/:id", async(req, res) => {
     try {
@@ -63,6 +73,8 @@ router.get("/properties/:id", async(req, res) => {
          res.status(500).json({ status: false, message: "Internal server error"})
     }
 })
+
+// Update a property
 
 
 router.put("/properties/:id", async(req, res) => {
@@ -98,6 +110,9 @@ router.put("/properties/:id", async(req, res) => {
             res.status(500).json({ status: false, message: "Internal server error"})
         }
 })
+
+
+// Delete a property
 
 
 router.delete("/properties/:id", async(req, res) => {
