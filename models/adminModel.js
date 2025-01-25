@@ -2,11 +2,21 @@ import express from "express";
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
-    username: {
+    contact_no: {
+        type: Number,
+        required: true,
+        unique: true
+    },
+    full_name: {
+        type: String,
+        required: true
+    },
+    admin_id: {
         type: String,
         required: true,
         unique: true
     },
+
     email: {
         type: String,
         required: true,
