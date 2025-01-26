@@ -2,6 +2,9 @@ import Admin from '../models/adminModel.js'
 import bcrypt from 'bcryptjs'
 import express from 'express'
 import jwt from 'jsonwebtoken'
+import {errorHandler} from '../utils/error.js'
+
+
 
 
 
@@ -54,10 +57,10 @@ export const signin = async (req, res, next) => {
     try {
         const validAdmin = await Admin.findOne({ admin_id });
         if (!validAdmin) 
-            return next(errorHandler(400, "Wrong Credentials"));
+            return next(errorHandler(404, "Wrong Credentials"));
         const validPassword = bcrypt.compareSync(password, validAdmin.password);
         if (!validPassword) 
-            return next(errorHandler(400, "Wrong Credentials"));
+            return next(errorHandler(401, "Wrong Credentials"));
         const token = jwt.sign({ id: validAdmin._id }, process.env.JWT_SECRET)
         const { password: pass, ...rest } = validAdmin._doc;
         res
