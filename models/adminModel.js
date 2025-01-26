@@ -1,12 +1,8 @@
-import express from "express";
+import express from "express"
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
-    contact_no: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+    
     full_name: {
         type: String,
         required: true
