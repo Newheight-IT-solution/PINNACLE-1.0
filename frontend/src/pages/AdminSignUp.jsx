@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-export default function SignUp() {
+export default function AdminSignUp() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({})
@@ -36,7 +36,7 @@ export default function SignUp() {
     }
     setLoading(false)
     setError(null)
-    navigate('/sign-in')
+    navigate('/admin-sign-in')
     } catch (error) {
       setLoading(false)
       setError(error.message)
@@ -85,7 +85,7 @@ export default function SignUp() {
 
       <div className='flex gap-3 mt-5'>
         <p>An admin already?</p>
-        <Link to={'/sign-in'} className='text-blue-700 hover:underline'>Sign In</Link>
+        <Link to={'/admin-sign-in'} className='text-blue-700 hover:underline'>Sign In</Link>
         <div>
           {error && <p className='text-red-500'>{error}</p>}
         </div>
