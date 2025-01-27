@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-export default function SignIn() {
+export default function AdminSignIn() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({})
@@ -73,7 +73,7 @@ export default function SignIn() {
 
       <div className='flex gap-3 mt-5'>
         <p></p>
-        <Link to={'/sign-up'} className='text-blue-700 hover:underline'>Register Admin</Link>
+        <Link to={'/admin-sign-up'} className='text-blue-700 hover:underline'>Register Admin</Link>
         <div>
           {error && <p className='text-red-500'>{error}</p>}
         </div>
